@@ -3,8 +3,8 @@ require('db.php');
 
 $id=$_REQUEST['id'];
 $query = "SELECT * from wallet  where userid='$id'"; 
-$query1 = "SELECT pouns from wallet  where userid='$id'"; 
-echo $query;
+
+
 $result = mysqli_query($con, $query) or die ( mysqli_error());
 $row = mysqli_fetch_assoc($result);
 ?>
@@ -17,10 +17,8 @@ $row = mysqli_fetch_assoc($result);
 </head>
 <body>
 <div class="form">
-<p><a href="dashboard1.php">Dashboard</a> 
-| <a href="insertp.php">Insert New Record</a> 
-| <a href="logout.php">Logout</a></p>
-<h1 style="margin-left: 37%;">Withdraw from Your Wallet </h1>
+
+<h1 style="width:50%;color:rgb(80, 70, 115);height: 10%;border:none ;margin-left:37%">Withdraw from Your Wallet </h1>
 <?php
 $status = "";
 if(isset($_POST['new']) && $_POST['new']==1)
@@ -48,7 +46,7 @@ echo '<p style="color:#FF0000;">'.$status.'</p>';}
 else{
     $status = "you cant pull from wallet becouse your account less than . </br></br>
     <a  href='viewp.php'>back to wallet</a>";
-    echo '<p style="color:rgb(152, 127, 175); margin-left: 35%;">'.$status.'</p>';  
+    echo '<p style="color:rgb(152, 127, 175); margin-left: 37%;">'.$status.'</p>';  
 }
 }else {
 ?>
@@ -60,7 +58,7 @@ else{
 required value="<?php echo $row['usernam'];?>" /></p>
 <p><input type="text" name="pouns" placeholder="Enter Age" 
 required value="<?php echo $row['pouns'];?>" style="width:50%"/></p>
-<p><input name="submit" type="submit" value="Withdraw" style="width:50%;background:rgb(152, 127, 175);color:white;height: 10%;border:none"/></p>
+<p><input name="submit" type="submit" value="Withdraw" style="width:50%;background:rgb(100, 87, 135);color:white;height: 10%;border:none"/></p>
 </form>
 <?php } ?>
 </div>

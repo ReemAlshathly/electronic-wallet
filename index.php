@@ -121,11 +121,68 @@ switch($_GET["action"]) {
         <td colspan="2" align="right">Total:</td>
         <td align="right"><?php echo $total_quantity; ?></td>
         <td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
-        <td style="text-align:center;">  <a id="btnEmpty" href="index.php?action=buycard">buy</a></td>
+        <td style="text-align:center;"> 
+        <?php
+
+
+
+
+$query = $db_handle->runQuery("SELECT userid ,pouns from wallet  ");
+			$result = array($query[0]["userid"]=>array('id'=>$query[0]["userid"], 'pouns'=>$query[0]["pouns"]));
+           
+
+
+?>
+<?php
+$status = "";
+if(isset($_POST['new']) && $_POST['new']==1)
+{
+// $id=$_REQUEST['id'];
+
+
+$id=$_REQUEST['userid'];
+$result1=$row['pouns']; 
+// $submittedby = $_SESSION["username"];
+$update="update wallet set
+pouns ='$result1'-'$total_price'
+ where userid= '$id' ";
+
+
+
+// (id``,`product`,`catogry`)values
+//     ( '$id','$name','$cat')"
+
+if ($result>$total_price){
+ mysqli_query($con, $update) or die(mysqli_error());
+$status = "Record Updated Successfully. </br></br>
+<a href='viewp.php'>View Updated Record</a>";
+echo '<p style="color:#FF0000;">'.$status.'</p>';}
+else{
+    $status = "you cant pull from wallet becouse your account less than . </br></br>
+    <a  href='viewp.php'>back to wallet</a>";
+    echo '<p style="color:rgb(152, 127, 175); margin-left: 37%;">'.$status.'</p>';  
+}
+}else {
+?>
+<div style="margin-top: 6%; margin-left: 35%;">
+<form name="form" method="post" action=""> 
+<input type="hidden" name="new" value="1" style="width=50%"/>
+<input name="id" type="hidden" value="<?php echo $row['userid'];?>" />
+<p><input type="hidden" name="name" placeholder="Enter Name" 
+required value="<?php echo $row['usernam'];?>" /></p>
+<p><input type="hidden" name="hidden" placeholder="Enter Age" 
+required value="<?php echo $row['pouns'];?>" style="width:50%"/></p>
+<p><input name="submit" type="submit" value="Withdraw" style="width:50%;background:rgb(100, 87, 135);color:white;height: 10%;border:none"/></p>
+</form>
+<?php } ?>
+       
+    
+    
+    </td>
         </tr>
         </tbody>
         </table>
-        
+<!--         
        <?php
        ///////////////////////for cheack
        $user_id = "SELECT id FROM `users` WHERE username='$username'
@@ -148,7 +205,7 @@ and password='".md5($password)."'";
              <div class="no-records">Yourwallet less than the total price </div>
             <?php
         }///////////////////////////////////
-        ?>
+        ?> -->
        
       
           <?php

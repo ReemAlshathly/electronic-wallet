@@ -36,12 +36,12 @@ and password='".md5($password)."'";
 	}
     }else{
 ?>
-<div class="form">
-<h1>Log In</h1>
+<div class="form"  style="margin-top: 6%; margin-left: 35%;">
+<h1 style="width:50%;color:rgb(80, 70, 115);height: 10%;border:none ;margin-left:20%">Log In</h1>
 <form action="" method="post" name="login">
-<input type="text" name="username" placeholder="Username" required />
-<input type="password" name="password" placeholder="Password" required />
-<input name="submit" type="submit" value="Login" />
+<input type="text" name="username" placeholder="Username" required style="width:47%;background:rgb(f, f, f)"/><br>
+<input type="password" name="password" placeholder="Password" required style="width:47%" /><br>
+<input name="submit" type="submit" value="Login"  style="width:50%;background:rgb(100, 87, 135);color:white;height: 10%;border:none"/>
 </form>
 <p>Not registered yet? <a href='registration.php'>Register Here</a></p>
 </div>
