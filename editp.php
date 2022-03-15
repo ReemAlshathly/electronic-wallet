@@ -50,7 +50,7 @@ echo '<p style="color:rgb(152, 127, 175); margin-left: 45%;">'.$status.'</p>';
 <input type="hidden" name="new" value="1" />
 <input name="id" type="hidden" value="<?php echo $row['userid'];?>" />
 <p><input type="hidden" name="name" placeholder="Enter Name" 
-required value="<?php echo $row['usernam'];?>" /></p>
+required value="" /></p>
 <p><input type="text" name="pouns" placeholder="Enter Age" 
 required value="<?php echo $row['pouns'];?>" style="width:50%"/></p>
 <p><input name="submit" type="submit" value="Depost" style="width:50%;background:rgb(100, 87, 135);color:white;height: 10%;border:none"/></p>

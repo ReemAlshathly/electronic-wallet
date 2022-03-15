@@ -38,7 +38,7 @@ pouns ='$result'-'$cat'
 // (id``,`product`,`catogry`)values
 //     ( '$id','$name','$cat')"
 
-if ($result>$cat){
+if ($result>=$cat){
  mysqli_query($con, $update) or die(mysqli_error());
 $status = "Record Updated Successfully. </br></br>
 <a href='viewp.php'>View Updated Record</a>";
@@ -55,7 +55,7 @@ else{
 <input type="hidden" name="new" value="1" style="width=50%"/>
 <input name="id" type="hidden" value="<?php echo $row['userid'];?>" />
 <p><input type="hidden" name="name" placeholder="Enter Name" 
-required value="<?php echo $row['usernam'];?>" /></p>
+required value="<?php echo $row['userid'];?>" /></p>
 <p><input type="text" name="pouns" placeholder="Enter Age" 
 required value="<?php echo $row['pouns'];?>" style="width:50%"/></p>
 <p><input name="submit" type="submit" value="Withdraw" style="width:50%;background:rgb(100, 87, 135);color:white;height: 10%;border:none"/></p>

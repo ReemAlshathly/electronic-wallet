@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("dbcontroller.php");
-include("auth.php");
+
 // require('login.php');
 $db_handle = new DBController();
 if(!empty($_GET["action"])) {
@@ -44,6 +44,7 @@ switch($_GET["action"]) {
 	break;
     case "buycard":
 		unset($_SESSION["cart_item"]);
+        header("Location: login.php");
 	break;	
 }
 }
@@ -172,7 +173,7 @@ else{
 required value="<?php echo $row['usernam'];?>" /></p>
 <p><input type="hidden" name="hidden" placeholder="Enter Age" 
 required value="<?php echo $row['pouns'];?>" style="width:50%"/></p>
-<p><input name="submit" type="submit" value="Withdraw" style="width:50%;background:rgb(100, 87, 135);color:white;height: 10%;border:none"/></p>
+<p> <a id="btnEmpty"  name="submit" type="submit" value="Withdraw" href="index.php?action=buycard">Empty Cart</a></p>
 </form>
 <?php } ?>
        
