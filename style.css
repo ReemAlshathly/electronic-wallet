@@ -35,12 +35,12 @@ body {
 #btnEmpty {
 	background-color: #835e91;
 	border: #2f1d36 1px solid;
-	padding: 5px 10px;
+	
 	color: white;
-	float: right;
+	
 	text-decoration: none;
 	border-radius: 3px;
-	margin: 10px 0px;
+	
 }
 
 .btnAddAction {

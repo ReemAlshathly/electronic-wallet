@@ -28,6 +28,7 @@ $name =$_REQUEST['name'];
 $cat =$_REQUEST['pouns'];
 $id=$_REQUEST['id'];
 $result=$row['pouns']; 
+
 // $submittedby = $_SESSION["username"];
 $update="update wallet set
 pouns ='$result'-'$cat'
@@ -40,9 +41,12 @@ pouns ='$result'-'$cat'
 
 if ($result>=$cat){
  mysqli_query($con, $update) or die(mysqli_error());
-$status = "Record Updated Successfully. </br></br>
-<a href='viewp.php'>View Updated Record</a>";
-echo '<p style="color:#FF0000;">'.$status.'</p>';}
+$status = "You pull secsefully. </br></br>
+";
+echo '<p style="color:#FF0000;">'.$status.'</p>';
+header("Location: viewp.php");
+
+}
 else{
     $status = "you cant pull from wallet becouse your account less than . </br></br>
     <a  href='viewp.php'>back to wallet</a>";

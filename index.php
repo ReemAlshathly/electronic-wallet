@@ -43,7 +43,9 @@ switch($_GET["action"]) {
 		unset($_SESSION["cart_item"]);
 	break;
     case "buycard":
-		unset($_SESSION["cart_item"]);
+	
+        $_SESSION['totalprice'] =  $total_price;
+                      
         header("Location: login.php");
 	break;	
 }
@@ -56,7 +58,7 @@ switch($_GET["action"]) {
     </HEAD>
     <BODY>
         <div class="parent">
-        <a href="logout.php">Logout</a>
+       
     
     <div id="product-grid">
         <div class="txt-heading"><h1 style="color:rgb(152, 127, 175);text-align: center">Products</h1></div>
@@ -115,6 +117,8 @@ switch($_GET["action"]) {
                         <?php
                         $total_quantity += $item["quantity"];
                         $total_price += ($item["price"]*$item["quantity"]);
+                        $_SESSION['totalprice'] =  $total_price;
+                       
                 }
                 ?>
         
@@ -173,9 +177,12 @@ else{
 required value="<?php echo $row['usernam'];?>" /></p>
 <p><input type="hidden" name="hidden" placeholder="Enter Age" 
 required value="<?php echo $row['pouns'];?>" style="width:50%"/></p>
-<p> <a id="btnEmpty"  name="submit" type="submit" value="Withdraw" href="index.php?action=buycard">Empty Cart</a></p>
+<p> <a id="btnEmpty"  name="submit" type="submit" value="Withdraw" href="index.php?action=buycard">BUY</a></p>
 </form>
-<?php } ?>
+<?php  
+  $_SESSION['totalprice'] =  $total_price;
+ 
+} ?>
        
     
     

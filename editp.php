@@ -40,9 +40,10 @@ pouns ='$cat'+'$result'
 
 
  mysqli_query($con, $update) or die(mysqli_error());
-$status = "Record Updated Successfully. </br></br>
+$status = "Depost Successfully. </br></br>
 <a href='viewp.php'>back to your wallet</a>";
 echo '<p style="color:rgb(152, 127, 175); margin-left: 45%;">'.$status.'</p>';
+header("Location: viewp.php");
 }else {
 ?>
 <div style="margin-top: 6%; margin-left: 35%;">

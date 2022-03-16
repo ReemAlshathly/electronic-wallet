@@ -27,6 +27,7 @@ and password='".md5($password)."'";
 	$rows = mysqli_num_rows($result);
         if($rows==1){
 	    $_SESSION['username'] = $username;
+		
             // Redirect user to index.php
 	    header("Location: viewp.php");
          }else{
@@ -44,6 +45,9 @@ and password='".md5($password)."'";
 <input name="submit" type="submit" value="Login"  style="width:50%;background:rgb(100, 87, 135);color:white;height: 10%;border:none"/>
 </form>
 <p>Not registered yet? <a href='registration.php'>Register Here</a></p>
+<?php
+ 
+?>
 </div>
 <?php } ?>
 </body>
